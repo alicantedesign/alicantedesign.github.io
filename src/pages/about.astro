@@ -1,0 +1,98 @@
+---
+import "@fontsource-variable/inter";
+import Features from "~/components/features.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import Intro from "~/components/intro.astro";
+import Showcase from "~/components/showcase.astro";
+import Splash from "~/components/splash.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const image = new URL("social.jpg", site);
+const description =
+  "Alicante Web Design. You're in Alicante and you need a website? You found the right place. Vamos!";
+---
+
+<!doctype html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
+
+    <title>About Me</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Astro" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- initialize theme -->
+    <script is:inline>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header />
+    <div class="space-y-24 px-8 py-32">
+    
+
+
+      <h2 class="gradient-text text-center font-extrabold tracking-tight text-6xl">About Me</h2>
+  
+      <p class="max-w-xl text-center font-extrabold text-2xl center"> 
+        
+Hi! I'm Lukasz, and I'm a freelance web designer working in the Costa Blanca area. It was actually funny how this happened. I came to <a href="/">Alicante</a>, and I simply loved that place. So I decided to stay and to start working with the beautiful people from Alicante. This is how I started creating websites for Alicante businesses.
+
+My journey in web design started way before I landed in Alicante, though. I've always been passionate about technology and creativity, and web design combines both in the most exciting way. When I got here, I saw so many businesses that could shine online with a bit of help. That's when I knew I could really make a difference.
+
+I specialize in creating user-friendly, visually appealing websites that not only look good but also drive business growth. Every project I take on is a new adventure. I love diving deep into what each business needs and bringing that vision to life on the screen. It's about making a website that truly reflects the heart of the business.
+
+Working in Costa Blanca has been an amazing experience. The community here is vibrant and full of life, and that energy fuels my creativity. Plus, the sunny weather and beautiful surroundings are just the cherry on top.
+
+I'm not just building websites; I'm building relationships. I believe in working closely with my clients, understanding their needs, and delivering results that exceed their expectations. It's not just about the end product but about the journey we take to get there.
+
+Whether you're a small local shop or a larger enterprise, I'm here to help you make your mark online. Let's create something beautiful together!
+      </p>
+
+    </div>
+    <Footer />
+  </body>
+</html>
+
+
+
+<style>
+  
+  .center {
+    margin: 0 auto;
+  }
+
+</style>
