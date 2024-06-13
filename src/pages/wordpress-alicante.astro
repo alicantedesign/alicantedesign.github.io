@@ -1,0 +1,117 @@
+---
+import "@fontsource-variable/inter";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const image = new URL("social.jpg", site);
+const description =
+  "WordPress Service for Alicante.";
+---
+
+<!doctype html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
+
+    <title>WordPress Website Alicante - WordPress Alicante</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Astro" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- initialize theme -->
+    <script is:inline>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header />
+    <div class="space-y-24 px-8 py-32">
+    
+
+
+      <h1 class="gradient-text text-center font-extrabold tracking-tight text-6xl">WordPress Alicante</h1>
+  
+      <p class="max-w-xl text-center font-extrabold text-2xl center"> 
+        WordPress is incredible popular. Not only around Alicante, everywhere in the world. The reason is simple.
+        After getting a WordPress website you can pretty much change your WordPress site like a realy programmer.
+        Chaning content, adding features - no problem with WordPress. It's the best CMS in the world. <br>
+        I love using WordPress for my Alicante clients, because it's just exactly what they need.
+
+        First, it's easy. You don’t need to be a tech wizard. You can set up and run a website with no fuss.
+
+        Second, it’s flexible. Want a blog? Sure. An online store? No problem. A portfolio? You got it. WordPress does it all.
+
+        Third, it's customizable. You can make it look just the way you want. There are thousands of themes and plugins. You can change anything you like. It's your site, your way.
+
+        Fourth, it's reliable. WordPress has been around for years. Millions of sites use it. You know you’re getting something solid and trusted.
+
+        And finally, the community. You’re never alone. There are tons of tutorials, forums, and experts ready to help. You always have support.
+
+        That’s why people love WordPress. Simple, flexible, customizable, reliable, and supported. 
+        It’s the best CMS out there. As a <a href="/">web designer in Alicante</a>, WordPress is my first choice.
+      </p>
+
+      <h2>Here’s how I can help with WordPress</h2>
+
+      <p>Website Setup. I’ll get your WordPress site up and running quickly. No hassle, no fuss. Just a smooth start.
+
+        Theme Customization. I’ll make your site look exactly how you want. I can change colors, fonts, and layouts. You get a unique look.
+        
+        Plugin Installation. Want cool features? I’ll add plugins for you. Need a contact form? A gallery? E-commerce? I’ll install it all.
+        
+        Content Updates. I’ll keep your site fresh. I can update text, images, or add new pages. Your site will always be current.
+        
+        SEO Optimization. I’ll help you get found online. I’ll optimize your site for search engines. More traffic, more visitors.
+        
+        Security Enhancements. I’ll protect your site from threats. I’ll install security plugins and keep your site safe and secure.
+        
+        Maintenance and Support. I’ll keep your site running smoothly. Regular updates and backups. And I’ll be there for any issues.
+        
+        That’s just the start. With WordPress, the possibilities are endless. I can offer a range of services to help you get the most from your site.</p>
+
+    </div>
+    <Footer />
+  </body>
+</html>
+
+
+
+<style>
+  
+  .center {
+    margin: 0 auto;
+  }
+
+</style>
